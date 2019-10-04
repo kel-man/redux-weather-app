@@ -4,13 +4,3 @@ export function selectCity(city){
         payload: { city }
     }
 }
-
-export function selectedDetails(city, details){
-    return {
-        type: 'SELECTED_DETAILS',
-        payload: {
-            city,
-            info: details
-        }
-    }
-}

@@ -12,6 +12,7 @@ export default class CitySelect extends React.Component {
     }
 
     render(){
+        const cities = ['San Diego', 'New York', 'Washington D.C.', 'London', 'Tokyo']
         return(
             <div>
                 <table>
