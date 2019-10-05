@@ -2,7 +2,6 @@ import React from 'react';
 import SearchBar from './components/SearchBar';
 import CityInformation from './components/CityInformation';
 import SearchHistory from './components/SearchHistory';
-import CitySelect from './components/CitySelect';
 
 export default class App extends React.Component {
   render() {
@@ -12,16 +11,13 @@ export default class App extends React.Component {
           <h1 className='display-3 text-center'>Weather Application</h1>
         </div>
         <div className='row'>
-          <CitySelect />
-        </div>
-        <div className='row'>
           <SearchBar />
         </div>
         <div className='col-12 md-6 mb-4'>
           <CityInformation />
         </div>
         <div className='col-12 md-6 mb-4'>
-          <SearchHistory />
+          {/* <SearchHistory /> */}
         </div>
       </div>
     );

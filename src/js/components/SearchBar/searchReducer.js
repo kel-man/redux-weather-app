@@ -1,4 +1,5 @@
 const defaultState = {
+    searchTerm: '',
     city: '',
     searchHistory: []
 }
@@ -20,6 +21,12 @@ export default function SearchReducer(state = defaultState, action){
                     ...state.searchHistory,
                     {searchTerm}
                 ]
+            }
+        }
+        case 'SELECT_CITY' : {
+            return {
+                ...state,
+                searchTerm: payload
             }
         }
         default: {

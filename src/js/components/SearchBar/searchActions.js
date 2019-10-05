@@ -11,3 +11,10 @@ export function searchCities(city){
         payload: { city }
     }
 }
+
+export function selectCity(city){
+    return {
+        type: 'SELECT_CITY',
+        payload: { city }
+    }
+}
