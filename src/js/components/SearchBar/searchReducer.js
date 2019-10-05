@@ -1,7 +1,8 @@
+
 const defaultState = {
-    searchTerm: '',
+    newSearch: '',
     city: '',
-    searchHistory: []
+    history: []
 }
 
 export default function SearchReducer(state = defaultState, action){
@@ -11,22 +12,27 @@ export default function SearchReducer(state = defaultState, action){
         case 'UPDATE_SEARCH_INPUT' : {
             return { 
                 ...state,
-                searchTerm: payload
+                newSearch: payload
             }
         }
         case 'SEARCH_CITIES' : {
             return { 
-                searchTerm: '',
-                searchHistory: [
-                    ...state.searchHistory,
-                    {searchTerm}
+                ...state,
+                newSearch: payload,
+                history: [
+                    ...state.history,
+                    payload
                 ]
             }
         }
         case 'SELECT_CITY' : {
             return {
                 ...state,
-                searchTerm: payload
+                newSearch: payload,
+                history: [
+                    ...state.history,
+                    payload
+                ]
             }
         }
         default: {

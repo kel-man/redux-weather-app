@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
 import CityInformation from './components/CityInformation';
-import SearchHistory from './components/SearchHistory';
+import History from './components/History';
 
 export default class App extends React.Component {
   render() {
@@ -17,7 +17,7 @@ export default class App extends React.Component {
           <CityInformation />
         </div>
         <div className='col-12 md-6 mb-4'>
-          {/* <SearchHistory /> */}
+          {/* <History /> */}
         </div>
       </div>
     );

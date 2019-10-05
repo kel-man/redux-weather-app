@@ -8,3 +8,4 @@ function mapStoreToProps(store){
 }
 
 export default connect(mapStoreToProps)(CityInformation);
+

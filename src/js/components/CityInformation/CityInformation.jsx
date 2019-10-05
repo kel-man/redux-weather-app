@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 export default class CityInformation extends React.Component{
     
     render(){
+        const { city } = this.props;
         return(
             <div>
                 <table>
-                    <thead>City-Name goes here</thead>
+                    <thead>{city}</thead>
                 </table>
             </div>
         )

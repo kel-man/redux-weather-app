@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 import {
     updateSearchInput,
-    searchCity
+    searchCities
 } from './searchActions';
 
 export default class SearchBar extends React.Component {
     constructor(props){
         super(props);
         this.handleSearchInput=this.handleSearchInput.bind(this);
-        this.handleButtonClick=this.handleButtonClick.bind(this);
+        this.handleSearchButton=this.handleSearchButton.bind(this);
         this.handleCitySelect=this.handleCitySelect.bind(this);
     }
     
@@ -19,22 +19,24 @@ export default class SearchBar extends React.Component {
         dispatch(updateSearchInput(value));
     }
 
-    handleButtonClick(){
+    handleSearchButton(){
         const { dispatch, city } = this.props;
-        dispatch(searchCity(city));
+        dispatch(searchCities(city));
     }
 
     handleCitySelect(city){
         const { dispatch } = this.props;
-        dispatch(searchCity(city));
+        dispatch(searchCities(city));
     }
 
     render(){
         const cities = ['San Diego', 'New York', 'Washington D.C.', 'London', 'Tokyo']
+        const title = 'Title of the table!';
         return(
             <div>
                 <table>
-                    <thead>Find your city: </thead>
+                    <thead><tr><th>{title}</th><th>This is a second one!</th></tr></thead>
+                    <tbody>
                     <tr>
                         {
                             cities.map(city => (
@@ -44,9 +46,10 @@ export default class SearchBar extends React.Component {
                             ))
                         }
                     </tr>
+                    </tbody>
                 </table>
                 <textarea onChange={this.handleSearchInput} className='search text-input'/>
-                <button onClick={this.handleButtonClick} className='button btn-success'>Search!</button>
+                <button onClick={this.handleSearchButton} className='button btn-success'>Search!</button>
             </div>
         )
     }

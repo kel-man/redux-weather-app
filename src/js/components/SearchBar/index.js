@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
-import searchCities from './SearchBar';
+import SearchBar from './SearchBar';
 
 function mapStoreToProps(store){
     return {
         city: store.city,
+        history: store.history,
+        searchTerm: store.searchTerm
     }
 }
 
-export default connect(mapStoreToProps)(searchCities);
+export default connect(mapStoreToProps)(SearchBar);
