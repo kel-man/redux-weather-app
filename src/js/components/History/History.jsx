@@ -7,7 +7,7 @@ export default class History extends React.Component{
             <div>
                 <table>
                     <thead>Previously searched:</thead>
-                    {history.map(searchTerm => (
+                    {searchHistory.map(searchTerm => (
                         <tr>{searchTerm}</tr>
                     ))}
                 </table>

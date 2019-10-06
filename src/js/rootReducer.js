@@ -1,9 +1,11 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { combineReducers } from 'redux'
-import promiseMiddleware from 'redux-promise-middleware'
-import rootReducer from './rootReducer'
+import { combineReducers } from 'redux';
+import searchReducer from './components/SearchBar/searchReducer';
+import historyReducer from './components/History/historyReducer';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const rootStore = createStore(rootReducer, composeEnhancers(applyMiddleware(promiseMiddleware())));
+const rootReducer = combineReducers({
+    search: searchReducer,
+    history: historyReducer
+// add reducers
+});
 
-export default rootStore;
+export default rootReducer;

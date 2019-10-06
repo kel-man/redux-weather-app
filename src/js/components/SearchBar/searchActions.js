@@ -18,3 +18,10 @@ export function selectCity(city){
         payload: { city }
     }
 }
+
+export function getWeather(city){
+    return {
+        type: 'GET_WEATHER',
+        payload: axios.get(api.openweathermap.org/data/2.5/weather?q={city})
+    }
+}

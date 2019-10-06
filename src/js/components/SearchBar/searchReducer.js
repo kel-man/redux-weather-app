@@ -2,7 +2,13 @@
 const defaultState = {
     newSearch: '',
     city: '',
-    history: []
+    history: [],
+    humidity: '',
+    temperature: '',
+    tempLow: '',
+    tempHigh: '',
+    wind: '',
+    pressure: ''
 }
 
 export default function SearchReducer(state = defaultState, action){
