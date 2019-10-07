@@ -3,7 +3,7 @@ import CityInformation from './CityInformation';
 
 function mapStoreToProps(store){
     return {
-        city: store.city,
+        city: store.city
     }
 }
 

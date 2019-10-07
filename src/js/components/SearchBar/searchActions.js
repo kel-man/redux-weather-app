@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function updateSearchInput(city){
     return {
         type: 'UPDATE_SEARCH_INPUT',
@@ -5,23 +7,17 @@ export function updateSearchInput(city){
     };
 }
 
-export function searchCities(city){
+export function searchCities(searchInput){
+    console.log('searchCities');
     return {
         type: 'SEARCH_CITIES',
-        payload: { city }
+        payload: axios.get(`/search/${searchInput}`).catch(function(error){(console.log(error))})
     }
 }
 
-export function selectCity(city){
-    return {
-        type: 'SELECT_CITY',
-        payload: { city }
-    }
-}
-
-export function getWeather(city){
+export function getWeather(data){
     return {
         type: 'GET_WEATHER',
-        payload: axios.get(api.openweathermap.org/data/2.5/weather?q={city})
+        payload: { data }
     }
 }
