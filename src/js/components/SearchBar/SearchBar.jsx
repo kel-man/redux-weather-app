@@ -16,9 +16,9 @@ export default class SearchBar extends React.Component {
     }
 
     runGetWeather(){
-        const { dispatch, city } = this.props;
-        console.log(city);
-        dispatch(getWeather(city));
+        const { dispatch, cityData } = this.props;
+        console.log(cityData);
+        dispatch(getWeather(cityData));
     }
     
     handleSearchInput(e){

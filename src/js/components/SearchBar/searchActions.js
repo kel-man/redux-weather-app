@@ -16,9 +16,9 @@ export function searchCities(cityName){
     }
 }
 
-export function getWeather(city){
+export function getWeather(cityData){
     return {
         type: 'GET_WEATHER',
-        payload: { city }
+        payload: { cityData }
     }
 }

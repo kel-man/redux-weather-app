@@ -8,7 +8,9 @@ const defaultState = {
     tempLow: '',
     tempHigh: '',
     wind: '',
-    pressure: ''
+    pressure: '',
+    lat: null,
+    lon: null
 }
 
 export default function SearchReducer(state = defaultState, action) {
@@ -24,18 +26,13 @@ export default function SearchReducer(state = defaultState, action) {
         case 'SELECT_CITIES' : {
             return { 
                 ...state,
-                newSearch: '',
-                history: [
-                    ...history,
-                    payload
-                ]
+                newSearch: payload,
             }
         }
         case 'SEARCH_CITIES' : {
             return {
                 ...state,
-                newSearch: '',
-                city: payload,
+                newSearch: payload
             }
         }
         case 'SEARCH_CITIES_FULFILLED' : {
@@ -47,7 +44,10 @@ export default function SearchReducer(state = defaultState, action) {
                 tempLow: payload.data.main.temp_min,
                 tempHigh: payload.data.main.temp_max,
                 wind: payload.data.wind.speed,
-                pressure: payload.data.main.pressure
+                pressure: payload.data.main.pressure,
+                lat: payload.data.coord.lat,
+                lon: payload.data.coord.lon,
+                error: false
             }
         }
         default: {
