@@ -1,6 +1,5 @@
-
 const defaultState = {
-    newSearch: '',
+    searchTerm: '',
     city: {},
     history: [],
     humidity: '',
@@ -20,25 +19,26 @@ export default function SearchReducer(state = defaultState, action) {
         case 'UPDATE_SEARCH_INPUT' : {
             return { 
                 ...state,
-                newSearch: payload
+                searchTerm: payload
             }
         }
         case 'SELECT_CITIES' : {
             return { 
                 ...state,
-                newSearch: payload,
+                searchTerm: payload,
             }
         }
         case 'SEARCH_CITIES' : {
             return {
                 ...state,
-                newSearch: payload
+                searchTerm: payload
             }
         }
         case 'SEARCH_CITIES_FULFILLED' : {
             return {
                 ...state,
-                city: payload.data,
+                cityData: payload.data,
+                cityName: payload.data.name,
                 temperature: payload.data.main.temp,
                 humidity: payload.data.main.humidity,
                 tempLow: payload.data.main.temp_min,
@@ -47,7 +47,13 @@ export default function SearchReducer(state = defaultState, action) {
                 pressure: payload.data.main.pressure,
                 lat: payload.data.coord.lat,
                 lon: payload.data.coord.lon,
-                error: false
+                error: false,
+                history: [
+                    ...state.history,
+                    { cityName: payload.data.name,
+                        
+                    }
+                ]
             }
         }
         default: {

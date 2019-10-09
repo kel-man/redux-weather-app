@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export function updateSearchInput(cityName){
+export function updateSearchInput(searchTerm){
     return {
         type: 'UPDATE_SEARCH_INPUT',
-        payload: { cityName } 
+        payload: { searchTerm } 
     };
 }
 
@@ -16,9 +16,3 @@ export function searchCities(cityName){
     }
 }
 
-export function getWeather(cityData){
-    return {
-        type: 'GET_WEATHER',
-        payload: { cityData }
-    }
-}

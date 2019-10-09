@@ -17,7 +17,7 @@ export default class App extends React.Component {
           <CityInformation />
         </div>
         <div className='col-12 md-6 mb-4'>
-          {/* <History /> */}
+          <History />
         </div>
       </div>
     );

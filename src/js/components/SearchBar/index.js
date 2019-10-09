@@ -11,8 +11,8 @@ function mapStoreToProps(store){
         tempHigh: store.search.tempHigh,
         tempLow: store.search.tempLow,
         wind: store.search.wind,
-        searchTerm: store.searchTerm,
-        history: store.history
+        searchTerm: store.search.searchTerm.searchTerm,
+        history: store.search.history
     }
 }
 

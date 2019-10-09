@@ -11,6 +11,7 @@ function mapStoreToProps(store){
         tempHigh: store.search.tempHigh,
         tempLow: store.search.tempLow,
         wind: store.search.wind,
+        pressure: store.search.pressure
     }
 }
 
