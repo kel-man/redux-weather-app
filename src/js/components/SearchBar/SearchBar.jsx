@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import {
     updateSearchInput,
-    searchCities
+    searchCities,
+    getWeather
 } from './searchActions';
 
 export default class SearchBar extends React.Component {
@@ -11,6 +12,13 @@ export default class SearchBar extends React.Component {
         this.handleSearchInput=this.handleSearchInput.bind(this);
         this.handleSearchButton=this.handleSearchButton.bind(this);
         this.handleCitySelect=this.handleCitySelect.bind(this);
+        this.runGetWeather=this.runGetWeather.bind(this);
+    }
+
+    runGetWeather(){
+        const { dispatch, city } = this.props;
+        console.log(city);
+        dispatch(getWeather(city));
     }
     
     handleSearchInput(e){
@@ -23,7 +31,7 @@ export default class SearchBar extends React.Component {
         const { dispatch, newSearch } = this.props;
         console.log('handleSearchButton');
         dispatch(searchCities(newSearch));
-        dispatch(getWeather(city));
+        this.runGetWeather();
     }
 
     handleCitySelect(cityName){
@@ -42,9 +50,9 @@ export default class SearchBar extends React.Component {
                     <tbody>
                         <tr>
                             {
-                                cities.map((name, index) => (
+                                cities.map((cityName, index) => (
                                     <td key={index}>
-                                        <button onClick={() => this.handleCitySelect(name)}>{name}</button>
+                                        <button onClick={() => this.handleCitySelect(cityName)}>{cityName}</button>
                                     </td>
                                 ))
                             }

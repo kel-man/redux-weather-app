@@ -9,9 +9,10 @@ export function updateSearchInput(cityName){
 
 export function searchCities(cityName){
     console.log('searchCities');
+    console.log(cityName);
     return {
         type: 'SEARCH_CITIES',
-        payload: axios.get(`/search/${cityName}`).catch(function(error){(console.log(error))})
+        payload: axios.get(`/search/${cityName}`).catch(function(error){console.log(error)})
     }
 }
 

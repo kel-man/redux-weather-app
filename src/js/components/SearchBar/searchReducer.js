@@ -11,7 +11,7 @@ const defaultState = {
     pressure: ''
 }
 
-export default function SearchReducer(state = defaultState, action){
+export default function SearchReducer(state = defaultState, action) {
     const { type, payload } = action;
 
     switch (type) {
@@ -36,15 +36,12 @@ export default function SearchReducer(state = defaultState, action){
                 ...state,
                 newSearch: '',
                 city: payload,
-                history: [
-                    ...history,
-                    payload
-                ]
             }
         }
-        case 'GET_WEATHER' : {
+        case 'SEARCH_CITIES_FULFILLED' : {
             return {
                 ...state,
+                city: payload.data,
                 temperature: payload.data.main.temp,
                 humidity: payload.data.main.humidity,
                 tempLow: payload.data.main.temp_min,
