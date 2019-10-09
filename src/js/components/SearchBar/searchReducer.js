@@ -1,7 +1,7 @@
 
 const defaultState = {
     newSearch: '',
-    city: '',
+    city: {},
     history: [],
     humidity: '',
     temperature: '',
@@ -26,19 +26,18 @@ export default function SearchReducer(state = defaultState, action){
                 ...state,
                 newSearch: '',
                 history: [
-                    ...state.history,
+                    ...history,
                     payload
                 ]
             }
         }
         case 'SEARCH_CITIES' : {
-            console.log('reducer');
             return {
                 ...state,
                 newSearch: '',
                 city: payload,
                 history: [
-                    ...state.history,
+                    ...history,
                     payload
                 ]
             }

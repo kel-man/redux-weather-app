@@ -20,21 +20,21 @@ export default class SearchBar extends React.Component {
     }
 
     handleSearchButton(){
-        const { dispatch, searchInput } = this.props;
-        dispatch(searchCities(searchInput));
+        const { dispatch, newSearch } = this.props;
+        console.log('handleSearchButton');
+        dispatch(searchCities(newSearch));
         dispatch(getWeather(city));
     }
 
-    handleCitySelect(city){
+    handleCitySelect(cityName){
         const { dispatch } = this.props;
         console.log('handleCitySelect');
-        dispatch(searchCities(city));
+        dispatch(searchCities(cityName));
     }
 
     render(){
         const cities = ['San Diego', 'New York', 'Washington D.C.', 'London', 'Tokyo']
         const title = 'Title of the table!';
-        const { city } = this.props;
         return(
             <div>
                 <table>
@@ -42,8 +42,8 @@ export default class SearchBar extends React.Component {
                     <tbody>
                         <tr>
                             {
-                                cities.map(name => (
-                                    <td>
+                                cities.map((name, index) => (
+                                    <td key={index}>
                                         <button onClick={() => this.handleCitySelect(name)}>{name}</button>
                                     </td>
                                 ))
@@ -52,7 +52,6 @@ export default class SearchBar extends React.Component {
                     </tbody>
                 </table>
                 <textarea onChange={this.handleSearchInput} className='search text-input'/>
-                <p>{city}</p>
                 <button onClick={this.handleSearchButton} className='button btn-success'>Search!</button>
             </div>
         )

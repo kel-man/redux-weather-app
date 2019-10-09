@@ -1,23 +1,23 @@
 import axios from 'axios';
 
-export function updateSearchInput(city){
+export function updateSearchInput(cityName){
     return {
         type: 'UPDATE_SEARCH_INPUT',
-        payload: { city } 
+        payload: { cityName } 
     };
 }
 
-export function searchCities(searchInput){
+export function searchCities(cityName){
     console.log('searchCities');
     return {
         type: 'SEARCH_CITIES',
-        payload: axios.get(`/search/${searchInput}`).catch(function(error){(console.log(error))})
+        payload: axios.get(`/search/${cityName}`).catch(function(error){(console.log(error))})
     }
 }
 
-export function getWeather(data){
+export function getWeather(city){
     return {
         type: 'GET_WEATHER',
-        payload: { data }
+        payload: { city }
     }
 }
