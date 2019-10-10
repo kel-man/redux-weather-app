@@ -30,18 +30,27 @@ export default class SearchBar extends React.Component {
     }
 
     render(){
-        const cities = ['San Diego', 'New York', 'Washington D.C.', 'London', 'Tokyo']
-        const title = 'Title of the table!';
+        const cities = [
+                            { id: 5391811, displayName: 'San Diego', name: 'San Diego' },
+                            { id: 5128581, displayName: 'New York', name: 'New York' }, 
+                            { id: 4366164, displayName: 'Washington D.C.', name: "Prince George's County" }, 
+                            { id: 2643743, displayName: 'London', name: 'London' }, 
+                            { id: 1850147, displayName: 'Tokyo', name: 'Tokyo' }
+                       ]
         return(
             <div>
                 <table>
-                    <thead><tr><th>{title}</th><th>This is a second one!</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Select a city, or search for one below!</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr>
                             {
-                                cities.map((cityName, index) => (
-                                    <td key={index}>
-                                        <button onClick={() => this.handleCitySelect(cityName)}>{cityName}</button>
+                                cities.map(city => (
+                                    <td key={city.id}>
+                                        <button onClick={() => this.handleCitySelect(city.name)}>{city.displayName}</button>
                                     </td>
                                 ))
                             }

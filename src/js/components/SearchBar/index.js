@@ -12,7 +12,10 @@ function mapStoreToProps(store){
         tempLow: store.search.tempLow,
         wind: store.search.wind,
         searchTerm: store.search.searchTerm.searchTerm,
-        history: store.search.history
+        history: store.search.history,
+        humidity: store.search.humidity,
+        error: store.search.error,
+        display: store.search.display
     }
 }
 

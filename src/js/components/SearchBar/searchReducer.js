@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const defaultState = {
     searchTerm: '',
     city: {},
@@ -9,7 +11,8 @@ const defaultState = {
     wind: '',
     pressure: '',
     lat: null,
-    lon: null
+    lon: null,
+    display: false
 }
 
 export default function SearchReducer(state = defaultState, action) {
@@ -41,18 +44,19 @@ export default function SearchReducer(state = defaultState, action) {
                 cityName: payload.data.name,
                 temperature: payload.data.main.temp,
                 humidity: payload.data.main.humidity,
-                tempLow: payload.data.main.temp_min,
-                tempHigh: payload.data.main.temp_max,
+                tempLow: payload.data.main.temp_min.toFixed(2),
+                tempHigh: payload.data.main.temp_max.toFixed(2),
                 wind: payload.data.wind.speed,
                 pressure: payload.data.main.pressure,
                 lat: payload.data.coord.lat,
                 lon: payload.data.coord.lon,
                 error: false,
+                display: true,
                 history: [
-                    ...state.history,
                     { cityName: payload.data.name,
-                        
-                    }
+                        date: moment().format('l'),
+                        time: moment().format('h:mm:ss a') },
+                    ...state.history
                 ]
             }
         }
